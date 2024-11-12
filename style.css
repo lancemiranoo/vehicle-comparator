@@ -1,0 +1,133 @@
+/*GENERAL*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/*DESKTOP NAV*/
+#desktop-nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: #FBFBFB; /* Or any color you want */
+}
+
+nav,
+.nav-links {
+    display: flex;
+}
+
+nav {
+    justify-content: space-around;
+    align-items: center;
+    height: 7vh;
+}
+
+.nav-links {
+    gap: 2rem;
+    list-style: none;
+    font-size: 2rem;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    text-decoration-color: white;
+}
+
+a:hover {
+    color: grey;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+    text-decoration-color: rgb(181, 181, 181);
+}
+
+
+
+
+/* STYLE FOR THE LANDING PAGE */
+
+#home {
+    display: flex;
+    align-items: center;   
+    justify-content: center; 
+    height: 93vh;           
+    background-color: #D4F6FF;
+    padding-top: 80px; 
+}
+
+.home {
+    text-align: center;
+}
+
+.title {
+    font-size: 70px;
+    color: #333;
+    margin: 0;
+}
+
+/* Showcase Section */
+
+#showcase {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.cartitle {
+    font-size: 60px;
+}
+
+.showcase-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Applies rounded corners to all sides */
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.col-md-4 {
+    padding-top: 15rem;
+}
+
+.carName,
+.description {
+    /* Hidden initially */
+    /* display: none;  */
+    padding: 10px;
+    color: black;
+    margin-top: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.showcase-item {
+    text-align: center;
+    cursor: pointer; /* Indicates clickability */
+    border-style: dashed;
+}
+
+/* Initial styles for the images */
+.showcase-item .showcase-img {
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scaling and shadow */
+}
+
+/* Optional: Add shadow or border on hover */
+.showcase-item:hover .showcase-img {
+    transform: scale(1.1); /* Enlarge the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for highlighting */
+    opacity: 0.9; /* Optional: Slight opacity change for highlight effect */
+}
