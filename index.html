@@ -9,14 +9,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-        <nav id="desktop-nav">
-            <ul class="nav-links row">
-                <li class="col-md-3"><a href="#home" class="active">Home</a></li>
-                <li class="col-md-3"><a href="#showcase">Showcase</a></li>
-                <li class="col-md-3"><a href="#compare">Compare</a></li>
-                <li class="col-md-3"><a href="#history">History</a></li>
-            </ul>
-        </nav>
+    <nav id="desktop-nav">
+        <ul class="nav-links row">
+            <li class="col-md-3"><a href="#home" class="active">Home</a></li>
+            <li class="col-md-3"><a href="#showcase">Showcase</a></li>
+            <li class="col-md-3"><a href="#compare">Compare</a></li>
+            <li class="col-md-3"><a href="#history">History</a></li>
+        </ul>
+    </nav>
 
     <!-- Section with Container -->
     <section id="home">
@@ -31,90 +31,118 @@
 
     <!-- Showcase Section -->
     <section id="showcase">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4 showcase-item">
-                    <img src="images/SEDAN_honda_Orange-Si.png" alt="Orange-Si" class="showcase-img">
-                    <div class="carName">Honda Civic Si</div>
-                    <div class="description">
-                        <p>4DR Sedan, 1.5 L.</p>
-                    </div>
+                <div class="col-md-12 showcase">
+                    <h1 class="title">Showcases</h1>
                 </div>
-
-                <div class="col-md-4 showcase-item">
-                    <img src="./images/SEDAN_hyundia_sonata.png" alt="Sonata" class="showcase-img">
-                    <div class="carName">2024 Sonata</div>
-                    <div class="description">
-                        <p>4DR Sedan, 2.5 L.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4 showcase-item">
-                    <img src="./images/SEDAN_toyota_camry_trd.png" alt="Camry" class="showcase-img">
-                    <div class="carName">2024 Camry TRD</div>
-                    <div class="description">
-                        <p>4DR Sedan, 3.5 L V6.</p>
-                    </div>
-                </div>
-
             </div>
         </div>
 
         <div class="container">
             <div class="row">
-                <div class="col-md-4 showcase-item">
-                    <img src="./images/SUV_mitshubishiOutlander.png" alt="OutLander" class="showcase-img">
-                    <div class="carName">OutLander</div>
-                    <div class="description">
-                        <p>2.5L 4 Cylinder engine</p>
+                <!-- Card 1 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/SEDAN_honda_Orange-Si.png" class="card-img-top" alt="Orange-Si">
+                        <div class="card-body">
+                            <h5 class="card-title">Honda Civic Si</h5>
+                            <p class="card-text">4DR Sedan, 1.5 L.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 showcase-item">
-                    <img src="./images/SUV_nissanrogue.png" alt="Rogue" class="showcase-img">
-                    <div class="carName">Rogue</div>
-                    <div class="description">
-                        <p>1.5-liter 3-cylinder engine</p>
+                <!-- Card 2 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./images/SEDAN_hyundia_sonata.png" class="card-img-top" alt="Sonata">
+                        <div class="card-body">
+                            <h5 class="card-title">2024 Sonata</h5>
+                            <p class="card-text">4DR Sedan, 2.5 L.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 showcase-item">
-                    <img src="./images/SUV_subaruoutback.png" alt="Outback" class="showcase-img">
-                    <div class="carName">Outback</div>
-                    <div class="description">
-                        <p>182-hp 2.5L engine</p>
+                <!-- Card 3 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./images/SEDAN_toyota_camry_trd.png" class="card-img-top" alt="Camry">
+                        <div class="card-body">
+                            <h5 class="card-title">2024 Camry TRD</h5>
+                            <p class="card-text">4DR Sedan, 3.5 L V6.</p>
+                        </div>
                     </div>
                 </div>
-                
             </div>
-        </div>
 
-        <div class="container">
             <div class="row">
-                <div class="col-md-4 showcase-item">
-                    <img src="./images/TRUCK_fordraptor.png" alt="Raptor" class="showcase-img">
-                    <div class="carName">Raptor</div>
-                    <div class="description">
-                        <p>3.5L V6 engine</p>
+                <!-- Card 4 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./images/SUV_mitshubishiOutlander.png" class="card-img-top" alt="OutLander">
+                        <div class="card-body">
+                            <h5 class="card-title">OutLander</h5>
+                            <p class="card-text">2.5L 4 Cylinder engine</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 showcase-item">
-                    <img src="./images/TRUCK_nissan_frontier.png" alt="Frontier" class="showcase-img">
-                    <div class="carName">Frontier</div>
-                    <div class="description">
-                        <p>3.8-liter V6 engine</p>
+                <!-- Card 5 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./images/SUV_nissanrogue.png" class="card-img-top" alt="Rogue">
+                        <div class="card-body">
+                            <h5 class="card-title">Rogue</h5>
+                            <p class="card-text">1.5-liter 3-cylinder engine</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 showcase-item">
-                    <img src="./images/TRUCK_toyotatacoma.png" alt="Tacoma" class="showcase-img">
-                    <div class="carName">Tacoma</div>
-                    <div class="description">
-                        <p>2.4-Liter Turbocharged 4-Cylinder</p>
+                <!-- Card 6 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./images/SUV_subaruoutback.png" class="card-img-top" alt="Outback">
+                        <div class="card-body">
+                            <h5 class="card-title">Outback</h5>
+                            <p class="card-text">182-hp 2.5L engine</p>
+                        </div>
                     </div>
                 </div>
-                
+            </div>
+
+            <div class="row">
+                <!-- Card 7 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./images/TRUCK_fordraptor.png" class="card-img-top" alt="Raptor">
+                        <div class="card-body">
+                            <h5 class="card-title">Raptor</h5>
+                            <p class="card-text">3.5L V6 engine</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./images/TRUCK_nissan_frontier.png" class="card-img-top" alt="Frontier">
+                        <div class="card-body">
+                            <h5 class="card-title">Frontier</h5>
+                            <p class="card-text">3.8-liter V6 engine</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./images/TRUCK_toyotatacoma.png" class="card-img-top" alt="Tacoma">
+                        <div class="card-body">
+                            <h5 class="card-title">Tacoma</h5>
+                            <p class="card-text">2.4-Liter Turbocharged 4-Cylinder</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

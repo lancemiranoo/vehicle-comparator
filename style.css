@@ -68,7 +68,7 @@ a:hover {
     display: flex;
     align-items: center;   
     justify-content: center; 
-    height: 93vh;           
+    height: 100vh;           
     background-color: #D4F6FF;
     padding-top: 80px; 
 }
@@ -83,34 +83,56 @@ a:hover {
     margin: 0;
 }
 
-/* Showcase Section */
+/* Showcase Section Styles */
 #showcase {
-    padding: 50px 0;
+    padding: 20px 0;
+    padding-top: 100px;
+    text-align: center;
 }
 
-.showcase-img {
+#showcase .title {
+    padding-bottom: 50px; /* Adjust the padding as needed */
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
     width: 100%;
     height: auto;
-    border-radius: 8px; /* Applies rounded corners to all sides */
-    object-fit: cover;
-    overflow: hidden;
+    border-bottom: 2px solid #ddd;
 }
 
-.col-md-4 {
-    padding-top: 15rem;
-}
-
-.carName,
-.description {
+.card-body {
     display: none; /* Hidden initially */
     padding: 10px;
-    color: black;
-    margin-top: 10px;
-    border-radius: 4px;
     text-align: center;
 }
 
-.showcase-item {
-    text-align: center;
-    cursor: pointer; /* Indicates clickability */
+/* Show class to toggle visibility */
+.card-body.show {
+    display: block;
 }
+
+.card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-text {
+    font-size: 1em;
+    color: #666;
+}
+
