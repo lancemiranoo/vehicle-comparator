@@ -28,4 +28,30 @@ function toggleMenu() {
         ); 
     });
     }
+
+        // Click event for nav links to set active class
+        $('.nav-links a').on('click', function() {
+            // Remove active class from all links
+            $('.nav-links a').removeClass('active');
+            // Add active class to the clicked link
+            $(this).addClass('active');
+        });
+    
+        // Scroll event to update active class based on the visible section
+        $(window).on('scroll', function() {
+            let currentScroll = $(window).scrollTop();
+            
+            $('section').each(function() {
+                let sectionTop = $(this).offset().top - 60; // Adjust for navbar height
+                let sectionBottom = sectionTop + $(this).outerHeight();
+                
+                if (currentScroll >= sectionTop && currentScroll < sectionBottom) {
+                    let sectionId = $(this).attr('id');
+                    
+                    // Update active link based on scroll position
+                    $('.nav-links a').removeClass('active');
+                    $('.nav-links a[href="#' + sectionId + '"]').addClass('active');
+                }
+            });
+})
 })
