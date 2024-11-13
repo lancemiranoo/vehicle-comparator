@@ -15,18 +15,66 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Center the navbar links */
+.navbar-nav {
+    gap: 2rem; /* Adjust spacing between links */
+}
 
 /*DESKTOP NAV*/
-#desktop-nav {
+@media (max-width: 768px) {
+    #desktop-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #FBFBFB;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}
+
+#showcase-title {
+    color: rgb(151, 0, 0); /* Highlight active links with color */
+    margin-bottom: 50px;
+}
+
+/* Make sure the links inside the collapse container have no transparency */
+.navbar-nav .nav-link {
+    color: #333; /* Set text color */
+    background-color: transparent; /* Default: no background */
+    padding: 10px 15px; /* Padding around links */
+}
+
+/* Make the links have a solid background when the menu is visible */
+.navbar-collapse.show {
+    background-color: #fff; /* Solid background for the whole menu */
+}
+
+.navbar-nav .nav-link.active {
+    color: rgb(151, 0, 0); /* Highlight active links with color */
+    font-weight: bold;
+}
+
+/* #desktop-nav {
     position: fixed;
     padding-top: 5px;
     width: 100%;
-    z-index: 1000; /* Ensures the navbar stays above other content */
+    z-index: 1000;
     background-color: #FBFBFB;
+} */
+
+/* Sticky Navbar */
+#desktop-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Keeps the navbar above other content */
+    background-color: #FBFBFB;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
 }
 
-nav,
-.nav-links {
+nav {
     display: flex;
 }
 
@@ -36,31 +84,12 @@ nav {
     height: 7vh;
 }
 
-.nav-links {
-    gap: 2rem;
-    list-style: none;
-    font-size: 2rem;
-}
-
-/* Add this to style.css */
-.nav-links a.active {
-    color: blue; /* Choose a highlight color */
-    font-weight: bold;
-}
 
 a {
     color: black;
     text-decoration: none;
     text-decoration-color: white;
 }
-
-a:hover {
-    color: grey;
-    text-decoration: underline;
-    text-underline-offset: 1rem;
-    text-decoration-color: rgb(181, 181, 181);
-}
-
 
 /* STYLE FOR THE LANDING PAGE */
 
@@ -71,20 +100,45 @@ a:hover {
     height: 100vh;           
     background-color: #D4F6FF;
     padding-top: 80px; 
+
+    background-image: url('./images/home.png'); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating the image */
+}
+
+/* Adding the overlay using a pseudo-element */
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(36, 36, 36, 0.7); /* Light gray color with 50% opacity */
+    z-index: 1; /* Ensures the overlay appears above the background image */
 }
 
 .home {
     text-align: center;
+    z-index: 2; /* Ensure the text content is above the overlay */
 }
 
 .title {
     font-size: 70px;
-    color: #333;
+    color: #ffffff;
+    margin: 0;
+}
+
+.sub-title {
+    color: #ffffff;
     margin: 0;
 }
 
 /* Showcase Section Styles */
 #showcase {
+    /* Light gray background */
+    background-color: #f7f7f7; 
     padding: 20px 0;
     padding-top: 100px;
     text-align: center;
@@ -103,11 +157,6 @@ a:hover {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
-}
-
 .card-img-top {
     width: 100%;
     height: auto;
@@ -115,13 +164,18 @@ a:hover {
 }
 
 .card-body {
-    display: none; /* Hidden initially */
+    /* Hidden initially */
+    /* display: none; */
     padding: 10px;
     text-align: center;
 }
 
+.card-text {
+    display: none;
+}
+
 /* Show class to toggle visibility */
-.card-body.show {
+.card-text.show {
     display: block;
 }
 
@@ -135,4 +189,3 @@ a:hover {
     font-size: 1em;
     color: #666;
 }
-

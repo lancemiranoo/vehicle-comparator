@@ -1,17 +1,21 @@
-$(document).ready(function() {               
+// ---------------------------------------------------------
+// jQuery ready() Method
+//   Ensures Fully Loaded DOM (document object model)
+//   before calling functions for the different sections
+// ---------------------------------------------------------
+$(document).ready(function() {
+    navigationMenu();
+    vehicleShowcase(); 
+});
 
-    // Select all cards
-    const cards = document.querySelectorAll(".card");
-
-    // Add click event to each card
-    cards.forEach(card => {
-        card.addEventListener("click", function() {
-            // Toggle 'show' class on the card body to show/hide it
-            const cardBody = this.querySelector(".card-body");
-            cardBody.classList.toggle("show");
-        });
-    });
-
+// ---------------------------------------------------------
+// Function Name: navigationMenu
+//   Handles the features for the Navigation Menu.
+//   1. Smooth scroll animation with swing easing effect
+//   2. Change nav link colors on hover
+//   3. Update active link based on scroll position
+// ---------------------------------------------------------
+function navigationMenu() {
     // Smooth scroll functionality for navigation menu sections
     $('#desktop-nav a').click(function(event) {
         // Prevent default anchor behavior
@@ -31,29 +35,75 @@ $(document).ready(function() {
         ); 
     });
 
-    // Click event for nav links to set active class
-    $('.nav-links a').on('click', function() {
-        // Remove active class from all links
-        $('.nav-links a').removeClass('active');
-        // Add active class to the clicked link
-        $(this).addClass('active');
-    });
+    // Add hover effect on nav links
+    $(".nav-link").hover(
+        function() {
+            // Mouse enter: Apply styles
+            $(this).css({
+                "color": "grey",
+                "text-decoration": "underline",
+                "text-underline-offset": "1rem",
+                "text-decoration-color": "rgb(181, 181, 181)"
+            });
+        },
+        function() {
+            // Mouse leave: Remove styles
+            $(this).css({
+                "color": "",
+                "text-decoration": "",
+                "text-underline-offset": "",
+                "text-decoration-color": ""
+            });
+        }
+    );
 
-    // Scroll event to update active class based on the visible section
-    $(window).on('scroll', function() {
-        let currentScroll = $(window).scrollTop();
+    // Scroll event to update active link based on scroll position
+    $(window).on('scroll', function () {
+        // Define the sections and offset
+        const sections = ['#home', '#showcase', '#compare', '#history'];
+        const scrollPos = $(document).scrollTop() + 100; // Adjust for offset (navbar height)
 
-        $('section').each(function() {
-            let sectionTop = $(this).offset().top - 60; // Adjust for navbar height
-            let sectionBottom = sectionTop + $(this).outerHeight();
+        sections.forEach(function (section) {
+            const sectionOffset = $(section).offset().top;
+            const sectionHeight = $(section).outerHeight();
 
-            if (currentScroll >= sectionTop && currentScroll < sectionBottom) {
-                let sectionId = $(this).attr('id');
-
-                // Update active link based on scroll position
-                $('.nav-links a').removeClass('active');
-                $('.nav-links a[href="#' + sectionId + '"]').addClass('active');
+            // Check if current scroll position is within this section
+            if (scrollPos >= sectionOffset && scrollPos < sectionOffset + sectionHeight) {
+                $('.nav-link').removeClass('active');
+                $(`.nav-link[href="${section}"]`).addClass('active');
             }
         });
     });
-});
+}
+
+// ---------------------------------------------------------
+// Function Name: vehicleShowcase
+//   Handles the features for the Vehicle Showcase.
+//   1. Toggles visibility of the card text
+//   2. Hover effect on each the card vehicles
+// ---------------------------------------------------------
+function vehicleShowcase() {
+    $('.card').each(function() {
+        // Click event to each card
+        $(this).on('click', function() {
+            // Toggle 'show' class on the card text (p.card-text)
+            $(this).find('.card-text').toggleClass('show');
+        });
+        
+        // On mouse enter, add the hover styles
+        $(this).on('mouseenter', function() {
+            $(this).css({
+                'transform': 'translateY(-5px)',
+                'box-shadow': '0px 8px 16px rgba(0, 0, 0, 0.15)'
+            });
+        });
+
+        // On mouse leave, remove the hover styles
+        $(this).on('mouseleave', function() {
+            $(this).css({
+                'transform': 'none',
+                'box-shadow': 'none'
+            });
+        });
+    });
+}

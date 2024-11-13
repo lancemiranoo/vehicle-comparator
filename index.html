@@ -1,40 +1,75 @@
+<!-- ************************************************************
+|  Project Name: CarSpecify: Vehicle Specification and         |
+|                Price Comparison Web Application              |
+|       Authors: Joash Daligcon, 000358654                     |
+|                Aron Limos, 000371798                         |
+|                Lance Mirano, 000368826                       |
+|    Created on: 2024-11-13                                    |
+|       Release: 1.0                                           |
+|   Description: Initial release includes the interactive      |
+|                navigation menu bar and the vehicle showcase. |
+************************************************************* -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Showcase</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="./images/faveico.png">
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap 5 JS Bundle (includes Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
-    <nav id="desktop-nav">
-        <ul class="nav-links row">
-            <li class="col-md-3"><a href="#home" class="active">Home</a></li>
-            <li class="col-md-3"><a href="#showcase">Showcase</a></li>
-            <li class="col-md-3"><a href="#compare">Compare</a></li>
-            <li class="col-md-3"><a href="#history">History</a></li>
-        </ul>
+    <nav id="desktop-nav" class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#">Brand</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#showcase">Showcase</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#compare">Compare</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#history">History</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <!-- Section with Container -->
+    <!-- Home Section -->
     <section id="home">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 home">
-                    <h1 class="title">Car Showcase</h1>
+                    <div class="home-content">
+                        <h1 class="title">CarSpecify</h1>
+                        <br>
+                        <h3 class="sub-title">Vehicle Specification and Price Comparison Tool</h3>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Showcase Section -->
+    <!-- Vehicle Showcase Section -->
     <section id="showcase">
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 showcase">
-                    <h1 class="title">Showcases</h1>
+                    <h1 id="showcase-title">Vehicle Showcase</h1>
                 </div>
             </div>
         </div>
@@ -44,102 +79,102 @@
                 <!-- Card 1 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="images/SEDAN_honda_Orange-Si.png" class="card-img-top" alt="Orange-Si">
+                        <img src="images/SEDAN_honda_Orange-Si.png" class="card-img-top" alt="Honda Civic Si">
                         <div class="card-body">
                             <h5 class="card-title">Honda Civic Si</h5>
-                            <p class="card-text">4DR Sedan, 1.5 L.</p>
+                            <p class="card-text">4DR Sedan, 1.5L Turbocharged 4-Cylinder</p>
                         </div>
                     </div>
                 </div>
-
+        
                 <!-- Card 2 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="./images/SEDAN_hyundia_sonata.png" class="card-img-top" alt="Sonata">
+                        <img src="./images/SEDAN_hyundia_sonata.png" class="card-img-top" alt="Hyundai Sonata">
                         <div class="card-body">
-                            <h5 class="card-title">2024 Sonata</h5>
-                            <p class="card-text">4DR Sedan, 2.5 L.</p>
+                            <h5 class="card-title">Hyundai Sonata</h5>
+                            <p class="card-text">4DR Sedan, 2.5L Inline-4</p>
                         </div>
                     </div>
                 </div>
-
+        
                 <!-- Card 3 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="./images/SEDAN_toyota_camry_trd.png" class="card-img-top" alt="Camry">
+                        <img src="./images/SEDAN_toyota_camry_trd.png" class="card-img-top" alt="Toyota Camry TRD">
                         <div class="card-body">
-                            <h5 class="card-title">2024 Camry TRD</h5>
-                            <p class="card-text">4DR Sedan, 3.5 L V6.</p>
+                            <h5 class="card-title">Toyota Camry TRD</h5>
+                            <p class="card-text">4DR Sedan, 3.5L V6</p>
                         </div>
                     </div>
                 </div>
             </div>
-
+        
             <div class="row">
                 <!-- Card 4 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="./images/SUV_mitshubishiOutlander.png" class="card-img-top" alt="OutLander">
+                        <img src="./images/SUV_mitshubishiOutlander.png" class="card-img-top" alt="Mitsubishi Outlander">
                         <div class="card-body">
-                            <h5 class="card-title">OutLander</h5>
-                            <p class="card-text">2.5L 4 Cylinder engine</p>
+                            <h5 class="card-title">Mitsubishi Outlander</h5>
+                            <p class="card-text">SUV, 2.5L Inline-4</p>
                         </div>
                     </div>
                 </div>
-
+        
                 <!-- Card 5 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="./images/SUV_nissanrogue.png" class="card-img-top" alt="Rogue">
+                        <img src="./images/SUV_nissanrogue.png" class="card-img-top" alt="Nissan Rogue">
                         <div class="card-body">
-                            <h5 class="card-title">Rogue</h5>
-                            <p class="card-text">1.5-liter 3-cylinder engine</p>
+                            <h5 class="card-title">Nissan Rogue</h5>
+                            <p class="card-text">SUV, 1.5L Turbocharged 3-Cylinder</p>
                         </div>
                     </div>
                 </div>
-
+        
                 <!-- Card 6 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="./images/SUV_subaruoutback.png" class="card-img-top" alt="Outback">
+                        <img src="./images/SUV_subaruoutback.png" class="card-img-top" alt="Subaru Outback">
                         <div class="card-body">
-                            <h5 class="card-title">Outback</h5>
-                            <p class="card-text">182-hp 2.5L engine</p>
+                            <h5 class="card-title">Subaru Outback</h5>
+                            <p class="card-text">SUV, 2.5L Inline-4</p>
                         </div>
                     </div>
                 </div>
             </div>
-
+        
             <div class="row">
                 <!-- Card 7 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="./images/TRUCK_fordraptor.png" class="card-img-top" alt="Raptor">
+                        <img src="./images/TRUCK_fordraptor.png" class="card-img-top" alt="Ford Raptor">
                         <div class="card-body">
-                            <h5 class="card-title">Raptor</h5>
-                            <p class="card-text">3.5L V6 engine</p>
+                            <h5 class="card-title">Ford Raptor</h5>
+                            <p class="card-text">Truck, 3.5L Twin-Turbo V6</p>
                         </div>
                     </div>
                 </div>
-
+        
                 <!-- Card 8 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="./images/TRUCK_nissan_frontier.png" class="card-img-top" alt="Frontier">
+                        <img src="./images/TRUCK_nissan_frontier.png" class="card-img-top" alt="Nissan Frontier">
                         <div class="card-body">
-                            <h5 class="card-title">Frontier</h5>
-                            <p class="card-text">3.8-liter V6 engine</p>
+                            <h5 class="card-title">Nissan Frontier</h5>
+                            <p class="card-text">Truck, 3.8L V6</p>
                         </div>
                     </div>
                 </div>
-
+        
                 <!-- Card 9 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="./images/TRUCK_toyotatacoma.png" class="card-img-top" alt="Tacoma">
+                        <img src="./images/TRUCK_toyotatacoma.png" class="card-img-top" alt="Toyota Tacoma">
                         <div class="card-body">
-                            <h5 class="card-title">Tacoma</h5>
-                            <p class="card-text">2.4-Liter Turbocharged 4-Cylinder</p>
+                            <h5 class="card-title">Toyota Tacoma</h5>
+                            <p class="card-text">Truck, 2.4L Turbocharged 4-Cylinder</p>
                         </div>
                     </div>
                 </div>
