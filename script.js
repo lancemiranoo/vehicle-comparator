@@ -80,14 +80,14 @@ function navigationMenu() {
 // Function Name: vehicleShowcase
 //   Handles the features for the Vehicle Showcase.
 //   1. Toggles visibility of the card text
-//   2. Hover effect on each the card vehicles
+//   2. Hover effect (mouse enter and leave) on the cards
 // ---------------------------------------------------------
 function vehicleShowcase() {
     $('.card').each(function() {
         // Click event to each card
         $(this).on('click', function() {
             // Toggle 'show' class on the card text (p.card-text)
-            $(this).find('.card-text').toggleClass('show');
+            $(this).find('.card-text').stop().slideToggle(200);
         });
         
         // On mouse enter, add the hover styles

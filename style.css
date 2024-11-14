@@ -1,26 +1,13 @@
-/*GENERAL*/
-
+/* GENERAL **********************************************/
+/* For modern font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-}
 
 body {
     font-family: 'Poppins', sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-}
 
-/* Center the navbar links */
-.navbar-nav {
-    gap: 2rem; /* Adjust spacing between links */
-}
-
-/*DESKTOP NAV*/
+/* DESKTOP NAV **********************************************/
 @media (max-width: 768px) {
     #desktop-nav {
         position: fixed;
@@ -31,18 +18,52 @@ html {
         background-color: #FBFBFB;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+    #navbarNav {
+        margin-right: 0px !important;
+    }
 }
 
-#showcase-title {
-    color: rgb(151, 0, 0); /* Highlight active links with color */
-    margin-bottom: 50px;
+/* Sticky Navbar */
+#desktop-nav {
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Keeps the navbar above other content */
+    background-color: #FBFBFB;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+
+    /* height: 60px; */
+    /* min-height: 60px; */
+    /* max-height: 60px; */
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 7vh;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    text-decoration-color: white;
+}
+
+#navbarNav {
+    margin-right: 20px;
 }
 
 /* Make sure the links inside the collapse container have no transparency */
 .navbar-nav .nav-link {
     color: #333; /* Set text color */
-    background-color: transparent; /* Default: no background */
-    padding: 10px 15px; /* Padding around links */
+    /* Default: no background */
+    /* background-color: transparent;  */
+    background-color: #FBFBFB;
+    /* Padding around links */
+    padding: 10px 15px; 
 }
 
 /* Make the links have a solid background when the menu is visible */
@@ -55,44 +76,12 @@ html {
     font-weight: bold;
 }
 
-/* #desktop-nav {
-    position: fixed;
-    padding-top: 5px;
-    width: 100%;
-    z-index: 1000;
-    background-color: #FBFBFB;
-} */
-
-/* Sticky Navbar */
-#desktop-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000; /* Keeps the navbar above other content */
-    background-color: #FBFBFB;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+li {
+    margin: 0;
+    padding: 0;
 }
 
-nav {
-    display: flex;
-}
-
-nav {
-    justify-content: space-around;
-    align-items: center;
-    height: 7vh;
-}
-
-
-a {
-    color: black;
-    text-decoration: none;
-    text-decoration-color: white;
-}
-
-/* STYLE FOR THE LANDING PAGE */
-
+/* HOME SECTION **********************************************/
 #home {
     display: flex;
     align-items: center;   
@@ -101,7 +90,7 @@ a {
     background-color: #D4F6FF;
     padding-top: 80px; 
 
-    background-image: url('./images/home.png'); /* Replace with your image path */
+    background-image: url('./images/home.gif'); /* Replace with your image path */
     background-size: cover; /* Ensures the image covers the entire section */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents repeating the image */
@@ -115,8 +104,10 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(36, 36, 36, 0.7); /* Light gray color with 50% opacity */
-    z-index: 1; /* Ensures the overlay appears above the background image */
+    /* Light gray color with 50% opacity */
+    background-color: rgba(36, 36, 36, 0.6); 
+    /* Ensures the overlay appears above the background image */
+    z-index: 1; 
 }
 
 .home {
@@ -125,7 +116,7 @@ a {
 }
 
 .title {
-    font-size: 70px;
+    font-size: 60px;
     color: #ffffff;
     margin: 0;
 }
@@ -135,7 +126,8 @@ a {
     margin: 0;
 }
 
-/* Showcase Section Styles */
+/* SHOWCASE SECTION **********************************************/
+
 #showcase {
     /* Light gray background */
     background-color: #f7f7f7; 
@@ -144,8 +136,9 @@ a {
     text-align: center;
 }
 
-#showcase .title {
-    padding-bottom: 50px; /* Adjust the padding as needed */
+#showcase-title {
+    color: rgb(151, 0, 0); /* Highlight active links with color */
+    margin-bottom: 50px;
 }
 
 .card {
@@ -172,11 +165,6 @@ a {
 
 .card-text {
     display: none;
-}
-
-/* Show class to toggle visibility */
-.card-text.show {
-    display: block;
 }
 
 .card-title {
