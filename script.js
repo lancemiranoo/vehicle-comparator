@@ -17,7 +17,7 @@ $(document).ready(function() {
 // ---------------------------------------------------------
 function navigationMenu() {
     // Smooth scroll functionality for navigation menu sections
-    $('#desktop-nav a').click(function(event) {
+    $('#main-nav a').click(function(event) {
         // Prevent default anchor behavior
         event.preventDefault();
 
@@ -30,7 +30,7 @@ function navigationMenu() {
         // Smoothly animate the scroll to the target section
         $('html, body').animate(
             { scrollTop: offsetTop },
-            1000,
+            100,
             'swing' // Easing effects for swing
         ); 
     });

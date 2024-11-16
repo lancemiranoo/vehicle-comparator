@@ -1,4 +1,4 @@
-/* GENERAL **********************************************/
+/* General **********************************************/
 /* For modern font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
@@ -6,26 +6,15 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-
-/* DESKTOP NAV **********************************************/
-@media (max-width: 768px) {
-    #desktop-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        background-color: #FBFBFB;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    #navbarNav {
-        margin-right: 0px !important;
-    }
+/* Interactive Navigation Menu Bar **********************************************/
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 7vh;
 }
 
-/* Sticky Navbar */
-#desktop-nav {
-    /* display: none; */
+#main-nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -33,17 +22,9 @@ body {
     z-index: 1000; /* Keeps the navbar above other content */
     background-color: #FBFBFB;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
-
-    /* height: 60px; */
-    /* min-height: 60px; */
-    /* max-height: 60px; */
-}
-
-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 7vh;
+    height: 60px;
+    min-height: 60px;
+    max-height: 60px;
 }
 
 a {
@@ -56,19 +37,17 @@ a {
     margin-right: 20px;
 }
 
-/* Make sure the links inside the collapse container have no transparency */
-.navbar-nav .nav-link {
-    color: #333; /* Set text color */
-    /* Default: no background */
-    /* background-color: transparent;  */
-    background-color: #FBFBFB;
-    /* Padding around links */
-    padding: 10px 15px; 
-}
-
 /* Make the links have a solid background when the menu is visible */
 .navbar-collapse.show {
     background-color: #fff; /* Solid background for the whole menu */
+}
+
+/* Make sure the links inside the collapse container have no transparency */
+.navbar-nav .nav-link {
+    color: #333; /* Set text color */
+    background-color: #FBFBFB;
+    /* Padding around links */
+    padding: 10px 15px; 
 }
 
 .navbar-nav .nav-link.active {
@@ -81,7 +60,26 @@ li {
     padding: 0;
 }
 
-/* HOME SECTION **********************************************/
+/* Media Queries for screen sizes */
+@media (max-width: 768px) {
+    #main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #FBFBFB;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media (max-width: 990px) {
+    #navbarNav {
+        margin-right: 0px !important;
+    }
+}
+
+/* Home Section **********************************************/
 #home {
     display: flex;
     align-items: center;   
@@ -90,7 +88,7 @@ li {
     background-color: #D4F6FF;
     padding-top: 80px; 
 
-    background-image: url('./images/home.gif'); /* Replace with your image path */
+    background-image: url('./images/home.avifs');
     background-size: cover; /* Ensures the image covers the entire section */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents repeating the image */
@@ -126,7 +124,7 @@ li {
     margin: 0;
 }
 
-/* SHOWCASE SECTION **********************************************/
+/* Showcase Section **********************************************/
 
 #showcase {
     /* Light gray background */
