@@ -90,7 +90,7 @@ li {
     background-color: #D4F6FF;
     padding-top: 80px; 
 
-    background-image: url('./images/home.gif'); /* Replace with your image path */
+    background-image: url('./images/car2.avifs'); /* Replace with your image path */
     background-size: cover; /* Ensures the image covers the entire section */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents repeating the image */
