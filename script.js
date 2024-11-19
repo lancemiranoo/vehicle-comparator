@@ -6,6 +6,7 @@
 $(document).ready(function() {
     navigationMenu();
     vehicleShowcase(); 
+    searchFilter();
 });
 
 // ---------------------------------------------------------
@@ -121,4 +122,34 @@ function vehicleShowcase() {
             }
         });
     });
+function searchFilter() {
+    // Show or hide the suggestion list based on input
+    $('#myInput').on('input', function () {
+        const inputValue = $(this).val().trim();
+
+        if (inputValue) {
+            $('#myUL').removeClass('hidden'); // Show suggestions
+        } else {
+            $('#myUL').addClass('hidden'); // Hide suggestions
+        }
+    });
+
+    // Filter the list items as the user types
+    $('#myInput').on('keyup', function () {
+        const input = $(this).val().toUpperCase(); // Get the search term in uppercase
+        const $li = $('#myUL li'); // Select all list items
+
+        // Loop through each list item and toggle visibility
+        $li.each(function () {
+            const $a = $(this).find('a').first(); // Find the <a> tag inside the <li>
+            const txtValue = $a.text() || $a.textContent; // Get the text content
+            $(this).toggle(txtValue.toUpperCase().includes(input)); // Show/hide based on match
+        });
+    });
+}
+
+// Call the function after DOM is ready
+$(document).ready(function () {
+    searchFilter();
+});
 }
