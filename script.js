@@ -105,5 +105,20 @@ function vehicleShowcase() {
                 'box-shadow': 'none'
             });
         });
+
+        // Toggle visibility for filtering products based on category
+        $(".filterBtn").click(function() {
+            // Get the target data to filter
+            const filter = $(this).attr("data-filter");
+
+            if (filter === "all") {
+            // Show all products
+            $(".card").show();
+            } else {
+            // Hide all products and show only the filtered ones
+            $(".card").hide();
+            $("." + filter).show();
+            }
+        });
     });
 }
