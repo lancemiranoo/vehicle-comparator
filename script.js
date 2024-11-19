@@ -147,9 +147,4 @@ function searchFilter() {
         });
     });
 }
-
-// Call the function after DOM is ready
-$(document).ready(function () {
-    searchFilter();
-});
 }
