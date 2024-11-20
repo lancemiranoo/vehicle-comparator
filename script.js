@@ -122,34 +122,58 @@ function vehicleShowcase() {
             }
         });
     });
+}
+    
 function searchFilter() {
-    // Show or hide the suggestion list based on input
-    $('#myInput').on('input', function () {
-        const inputValue = $(this).val().trim();
+    // // Show or hide the suggestion list based on input
+    // $('#myInput').on('input', function () {
+    //     const inputValue = $(this).val().trim();
 
-        if (inputValue) {
-            $('#myUL').removeClass('hidden'); // Show suggestions
-        } else {
-            $('#myUL').addClass('hidden'); // Hide suggestions
-        }
-    });
+    //     if (inputValue) {
+    //         $('#myUL').removeClass('hidden'); // Show suggestions
+    //     } else {
+    //         $('#myUL').addClass('hidden'); // Hide suggestions
+    //     }
+    // });
 
     // Filter the list items as the user types
     $('#myInput').on('keyup', function () {
-        const input = $(this).val().toUpperCase(); // Get the search term in uppercase
-        const $li = $('#myUL li'); // Select all list items
+        const searchValue = $(this).val().toUpperCase();
+        const $cards = $(".card");
 
-        // Loop through each list item and toggle visibility
-        $li.each(function () {
-            const $a = $(this).find('a').first(); // Find the <a> tag inside the <li>
-            const txtValue = $a.text() || $a.textContent; // Get the text content
-            $(this).toggle(txtValue.toUpperCase().includes(input)); // Show/hide based on match
-        });
+        for (i = 0; i < $cards.length; i++) {
+            $title = $cards[i].getElementsByTagName("h5")[0];
+            txtValue = $title.textContent || $title.innerText;
+
+            // alert(filter);
+            if (txtValue.toUpperCase().indexOf(searchValue) > -1) {
+                $cards[i].style.display = "";
+                // $cards[i].classList.remove('d-none');
+            } else {
+                $cards[i].style.display = "none";
+                // $cards[i].classList.add('d-none');
+            }
+        }
+
+        // $cards.each(function () {
+        //     const $title = $(this).find('h5').first();
+        //     const txtValue = $title.text() || $title.textContent;
+        //     // $(this).toggle(txtValue.toUpperCase().includes(searchValue));
+        //     if (txtValue.toUpperCase().indexOf(searchValue) > -1) {
+        //         $cards[i].style.display = "";
+        //     } else {
+        //         $cards[i].style.display = "none";
+        //     }
+        // });
+        
+        // const input = $(this).val().toUpperCase(); // Get the search term in uppercase
+        // const $li = $('#myUL li'); // Select all list items
+
+        // // Loop through each list item and toggle visibility
+        // $li.each(function () {
+        //     const $a = $(this).find('a').first(); // Find the <a> tag inside the <li>
+        //     const txtValue = $a.text() || $a.textContent; // Get the text content
+        //     $(this).toggle(txtValue.toUpperCase().includes(input)); // Show/hide based on match
+        // });
     });
-}
-
-// Call the function after DOM is ready
-$(document).ready(function () {
-    searchFilter();
-});
 }
