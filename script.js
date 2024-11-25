@@ -6,7 +6,8 @@
 $(document).ready(function() {
     navigationMenu();
     vehicleShowcase(); 
-    searchFilter();
+    // searchFilter();
+    compareVehicle();
 });
 
 // ---------------------------------------------------------
@@ -122,29 +123,56 @@ function vehicleShowcase() {
             }
         });
     });
-function searchFilter() {
-    // Show or hide the suggestion list based on input
-    $('#myInput').on('input', function () {
-        const inputValue = $(this).val().trim();
-
-        if (inputValue) {
-            $('#myUL').removeClass('hidden'); // Show suggestions
-        } else {
-            $('#myUL').addClass('hidden'); // Hide suggestions
-        }
-    });
-
-    // Filter the list items as the user types
-    $('#myInput').on('keyup', function () {
-        const input = $(this).val().toUpperCase(); // Get the search term in uppercase
-        const $li = $('#myUL li'); // Select all list items
-
-        // Loop through each list item and toggle visibility
-        $li.each(function () {
-            const $a = $(this).find('a').first(); // Find the <a> tag inside the <li>
-            const txtValue = $a.text() || $a.textContent; // Get the text content
-            $(this).toggle(txtValue.toUpperCase().includes(input)); // Show/hide based on match
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('myInput');
+        const cards = document.querySelectorAll('.card');
+    
+        // Event listener for 'keyup' event
+        searchInput.addEventListener('keyup', function() {
+            const searchTerm = searchInput.value.toLowerCase(); // Get the search input value and convert it to lowercase
+            
+            // Loop through each card and check the title
+            cards.forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase(); // Get the title and convert it to lowercase
+                
+                if (title.includes(searchTerm)) {
+                    card.style.display = 'block'; // Show card if title matches search term
+                } else {
+                    card.style.display = 'none'; // Hide card if title doesn't match
+                }
+            });
         });
     });
 }
+// ---------------------------------------------------------
+function compareVehicle() {
+    // When the "Compare" button is clicked
+    $('.calculate').click(function() {
+        // Get selected car IDs from the combo boxes
+        const firstCarId = $('#firstCar').val();
+        const secondCarId = $('#secondCar').val();
+
+        if (firstCarId === secondCarId) {
+            alert("Please select two different cars for comparison.");
+            return;
+        }
+
+        // Empty the comparison container before adding new comparison cards
+        $('#firstCarResult').empty();
+        $('#secondCarResult').empty();
+
+        // Clone the selected car cards based on the car IDs
+        const firstCarCard = $(`#${firstCarId}`).clone();
+        const secondCarCard = $(`#${secondCarId}`).clone();
+
+        // Check if the cards were cloned successfully
+        console.log(firstCarCard, secondCarCard);
+
+        // Append the cloned car cards to the respective columns
+        $('#firstCarResult').append(firstCarCard);
+        $('#secondCarResult').append(secondCarCard);
+
+        // Show the comparison result section
+        $('#comparisonContainer').show();
+    });
 }
