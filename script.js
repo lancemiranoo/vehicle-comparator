@@ -78,10 +78,6 @@ function navigationMenu() {
     });
 }
 
-// filter isnt fix yet
-
-
-
 // ---------------------------------------------------------
 // Function Name: vehicleShowcase
 //   Handles the features for the Vehicle Showcase.
