@@ -71,10 +71,10 @@
     <!-- Vehicle Showcase Section -->
     <section id="showcase">
 
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="col-md-12 showcase">
-                    <h1 id="showcase-title">Vehicle Showcase</h1>
+                <div class="col-md-12">
+                    <input type="text" id="myInput" placeholder="Search for cars by title...">
                 </div>
             </div>
         </div>
@@ -92,18 +92,9 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <input type="text" id="myInput" placeholder="Search for cars..">
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container">
-            <div class="row">
                 <!-- Car 1 -->
                 <div class="col-md-4">
-                    <div class="card sedan">
+                    <div id="car1" class="card sedan">
                         <img src="images/SEDAN_honda_Orange-Si.png" class="card-img-top" alt="Honda Civic Si">
                         <div class="card-body">
                             <h5 class="card-title">Honda Civic Si</h5>
@@ -114,7 +105,7 @@
         
                 <!-- Car 2 -->
                 <div class="col-md-4">
-                    <div class="card sedan">
+                    <div id="car2" class="card sedan">
                         <img src="./images/SEDAN_hyundia_sonata.png" class="card-img-top" alt="Hyundai Sonata">
                         <div class="card-body">
                             <h5 class="card-title">Hyundai Sonata</h5>
@@ -125,7 +116,7 @@
         
                 <!-- Car 3 -->
                 <div class="col-md-4">
-                    <div class="card sedan">
+                    <div id="car3" class="card sedan">
                         <img src="./images/SEDAN_toyota_camry_trd.png" class="card-img-top" alt="Toyota Camry TRD">
                         <div class="card-body">
                             <h5 class="card-title">Toyota Camry TRD</h5>
@@ -135,10 +126,11 @@
                 </div>
             </div>
         
+        
             <div class="row">
                 <!-- Car 4 -->
                 <div class="col-md-4">
-                    <div class="card suv">
+                    <div id="car4" class="card suv">
                         <img src="./images/SUV_mitshubishiOutlander.png" class="card-img-top" alt="Mitsubishi Outlander">
                         <div class="card-body">
                             <h5 class="card-title">Mitsubishi Outlander</h5>
@@ -149,7 +141,7 @@
         
                 <!-- Car 5 -->
                 <div class="col-md-4">
-                    <div class="card suv">
+                    <div id="car5" class="card suv">
                         <img src="./images/SUV_nissanrogue.png" class="card-img-top" alt="Nissan Rogue">
                         <div class="card-body">
                             <h5 class="card-title">Nissan Rogue</h5>
@@ -160,7 +152,7 @@
         
                 <!-- Car 6 -->
                 <div class="col-md-4">
-                    <div class="card suv">
+                    <div id="car6" class="card suv">
                         <img src="./images/SUV_subaruoutback.png" class="card-img-top" alt="Subaru Outback">
                         <div class="card-body">
                             <h5 class="card-title">Subaru Outback</h5>
@@ -173,7 +165,7 @@
             <div class="row">
                 <!-- Car 7 -->
                 <div class="col-md-4">
-                    <div class="card truck">
+                    <div id="car7" class="card truck">
                         <img src="./images/TRUCK_fordraptor.png" class="card-img-top" alt="Ford Raptor">
                         <div class="card-body">
                             <h5 class="card-title">Ford Raptor</h5>
@@ -184,7 +176,7 @@
         
                 <!-- Car 8 -->
                 <div class="col-md-4">
-                    <div class="card truck">
+                    <div id="car8" class="card truck">
                         <img src="./images/TRUCK_nissan_frontier.png" class="card-img-top" alt="Nissan Frontier">
                         <div class="card-body">
                             <h5 class="card-title">Nissan Frontier</h5>
@@ -195,7 +187,7 @@
         
                 <!-- Car 9 -->
                 <div class="col-md-4">
-                    <div class="card truck">
+                    <div id="car9" class="card truck">
                         <img src="./images/TRUCK_toyotatacoma.png" class="card-img-top" alt="Toyota Tacoma">
                         <div class="card-body">
                             <h5 class="card-title">Toyota Tacoma</h5>
@@ -206,6 +198,69 @@
             </div>
         </div>
     </section>
+
+<!-- Comparison Section -->
+<section id="compare" class="container">
+    <div class="row">
+        <!-- First Combo Box -->
+        <div class="col-md-5">
+            <select class="form-select mb-3" aria-label="Select the first car" id="firstCar">
+                <option value="car1">Honda Civic Si</option>
+                <option value="car2">Hyundai Sonata</option>
+                <option value="car3">Toyota Camry TRD</option>
+                <option value="car4">Mitsubishi Outlander</option>
+                <option value="car5">Nissan Rogue</option>
+                <option value="car6">Subaru Outback</option>
+                <option value="car7">Ford Raptor</option>
+                <option value="car8">Nissan Frontier</option>
+                <option value="car9">Toyota Tacoma</option>
+            </select>
+        </div>
+
+        <!-- Compare Button -->
+        <div class="col-md-2">
+            <button class="btn btn-primary calculate">Compare</button>
+        </div>
+
+        <!-- Second Combo Box -->
+        <div class="col-md-5">
+            <select class="form-select mb-3" aria-label="Select the second car" id="secondCar">
+                <option value="car1">Honda Civic Si</option>
+                <option value="car2">Hyundai Sonata</option>
+                <option value="car3">Toyota Camry TRD</option>
+                <option value="car4">Mitsubishi Outlander</option>
+                <option value="car5">Nissan Rogue</option>
+                <option value="car6">Subaru Outback</option>
+                <option value="car7">Ford Raptor</option>
+                <option value="car8">Nissan Frontier</option>
+                <option value="car9">Toyota Tacoma</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Comparison Result Section -->
+    <div class="row" id="comparisonContainer" style="display: none;">
+        <div class="col-md-6" id="firstCarResult">
+            <!-- First car comparison card will be appended here -->
+        </div>
+        <div class="col-md-6" id="secondCarResult">
+            <!-- Second car comparison card will be appended here -->
+        </div>
+    </div>
+</section>
+
+<!-- History Section -->
+<section id="history" class="container mt-5">
+    <h3>Comparison History</h3>
+    <ul id="historyList" class="list-group">
+        <!-- History items will be dynamically added here -->
+    </ul>
+</section>
+
+<!-- Link to JavaScript file -->
+<script src="script.js"></script>
+    
+
 
     <!-- Link to JavaScript file -->
     <script src="script.js"></script> 
