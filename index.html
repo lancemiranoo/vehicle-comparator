@@ -80,6 +80,17 @@
         </div>
         
         <div class="container">
+            <div class="row filter">
+                <div class="col-md-12">
+                    <button class="filterBtn" data-filter="all">All Cars</button>
+                    <button class="filterBtn" data-filter="sedan">Sedan</button>
+                    <button class="filterBtn" data-filter="suv">SUV</button>
+                    <button class="filterBtn" data-filter="truck">Truck</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
             <div class="row">
                 <!-- Car 1 -->
                 <div class="col-md-4">
@@ -194,7 +205,6 @@
         <!-- First Combo Box -->
         <div class="col-md-5">
             <select class="form-select mb-3" aria-label="Select the first car" id="firstCar">
-                <option selected>Select the first car</option>
                 <option value="car1">Honda Civic Si</option>
                 <option value="car2">Hyundai Sonata</option>
                 <option value="car3">Toyota Camry TRD</option>
@@ -215,7 +225,6 @@
         <!-- Second Combo Box -->
         <div class="col-md-5">
             <select class="form-select mb-3" aria-label="Select the second car" id="secondCar">
-                <option selected>Select the second car</option>
                 <option value="car1">Honda Civic Si</option>
                 <option value="car2">Hyundai Sonata</option>
                 <option value="car3">Toyota Camry TRD</option>
@@ -238,6 +247,14 @@
             <!-- Second car comparison card will be appended here -->
         </div>
     </div>
+</section>
+
+<!-- History Section -->
+<section id="history" class="container mt-5">
+    <h3>Comparison History</h3>
+    <ul id="historyList" class="list-group">
+        <!-- History items will be dynamically added here -->
+    </ul>
 </section>
 
 <!-- Link to JavaScript file -->
