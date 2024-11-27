@@ -124,7 +124,7 @@ function vehicleShowcase() {
 
     // Function to filter the cars based on search input
     function filterCars(searchTerm) {
-        $('#showcase .card').each(function () {
+        $('#car-cards > .card').each(function () {
             const card = $(this);
             const carName = card.find('.card-title').text().toLowerCase(); // Get the car name
             const carDescription = card.find('.card-text').text().toLowerCase(); // Get the car description
@@ -217,8 +217,13 @@ function compareVehicle() {
         const firstCarCard = $(`#${firstCarId}`).clone();
         const secondCarCard = $(`#${secondCarId}`).clone();
 
+        // To not follow the flex behavior from showcase section
         firstCarCard.removeClass("col-md-4");
         secondCarCard.removeClass("col-md-4");
+
+        // Ensure they are visible
+        firstCarCard.css('display', 'block');
+        secondCarCard.css('display', 'block');
 
 
         // Show the comparison result section
