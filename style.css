@@ -6,6 +6,37 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.slideanim {
+    visibility:hidden;
+}
+.slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+}
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateY(70%);
+  } 
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@-webkit-keyframes slide {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(70%);
+  } 
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }
+}
+
 /* Interactive Navigation Menu Bar **********************************************/
 nav {
     display: flex;
@@ -131,11 +162,26 @@ li {
 
 #showcase {
     /* Light gray background */
-    background-color: #f7f7f7; 
+    /* f7f7f7 */
+    background-color: #f0f0f0f0;  
     padding: 20px 0;
     padding-top: 100px;
     text-align: center;
 }
+
+#car-cards {
+    display: flex;
+    flex-wrap: wrap;  /* Allow the cards to wrap to the next line */
+    gap: 20px;  /* Adds space between the cards */
+    justify-content: flex-start; /* Align cards to the left */
+}
+
+.card {
+    flex: 0 0 calc(33.333% - 15px); /* Prevent cards from stretching */
+    box-sizing: border-box; /* Ensure padding and margin are included in the card width */
+    margin-bottom: 15px; /* Adds vertical spacing between rows */
+}
+
 
 #showcase-title {
     color: rgb(151, 0, 0); /* Highlight active links with color */
@@ -210,15 +256,29 @@ li {
     color: #666;
 }
 
+
+/* Comparison Section **********************************************/
+
+#compare {
+    /* White background */
+    background-color: #ffffff;
+    min-height: 75vh;
+    padding: 20px 0;
+    padding-top: 100px;
+    text-align: center;
+}
+
+#comparison-title {
+    color: rgb(151, 0, 0); /* Highlight active links with color */
+    margin-bottom: 50px;
+}
+
 #compare .col-md-2 {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#compare {
-    padding-top: 100px;
-}
 
 #compare .col-md-2 {
     display: flex;
@@ -242,7 +302,7 @@ li {
 }
 
 #compare .form-select {
-    width: 100%; /* Ensures dropdown takes full width of the column */
+    width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -275,6 +335,35 @@ li {
     padding-top: 60px;
 }
 
-#history h3 {
+.progress-bar {
+    background-color: rgb(255, 0, 0) !important;
+}
+
+.spec-label {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.spec-value {
+    text-align: right;
+}
+
+.ratingDiv {
+    font-weight: bold;
+}
+
+.overallRating {
+    background-color: rgb(150, 0, 0) !important;
+}
+/* History Section **********************************************/
+
+#history {
+    /* Light gray background */
+    background-color: #f0f0f0f0;
+    min-height: 50vh;
+    padding: 20px 0;
+    padding-top: 100px;
+    padding-left: 25px;
+    padding-right: 25px;
     text-align: center;
 }
