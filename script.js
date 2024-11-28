@@ -89,7 +89,7 @@ function navigationMenu() {
 // ---------------------------------------------------------
 function vehicleShowcase() {
     // Scope event handlers to showcase cards only
-    $('#showcase .card').each(function () {
+    $('.card').each(function () {
         // Remove any existing handlers to avoid duplication
         $(this).off();
 
@@ -145,10 +145,10 @@ function vehicleShowcase() {
 
         if (filter === "all") {
             // Show all products
-            $(".card").show();
+            $("#car-cards > .card").show();
         } else {
             // Hide all products and show only the filtered ones
-            $(".card").hide();
+            $("#car-cards > .card").hide();
             $("." + filter).show();
         }
     });
@@ -175,30 +175,96 @@ function compareVehicle() {
 
     // Define car specs for each car
     const carSpecs = {
-        car1: { name: "Honda Civic Si", speed: 180, fuelEfficiency: 30, price: 27500, cargoSpace: 90, safetyFeatures: 60 },
-        car2: { name: "Hyundai Sonata", speed: 170, fuelEfficiency: 28, price: 26000, cargoSpace: 90, safetyFeatures: 60 },
-        car3: { name: "Toyota Camry TRD", speed: 200, fuelEfficiency: 25, price: 32000, cargoSpace: 90, safetyFeatures: 60 },
-        car4: { name: "Mitsubishi Outlander", speed: 160, fuelEfficiency: 24, price: 27500, cargoSpace: 90, safetyFeatures: 60 },
-        car5: { name: "Nissan Rogue", speed: 150, fuelEfficiency: 32, price: 28000, cargoSpace: 90, safetyFeatures: 60 },
-        car6: { name: "Subaru Outback", speed: 170, fuelEfficiency: 22, price: 30000, cargoSpace: 90, safetyFeatures: 60 },
-        car7: { name: "Ford Raptor", speed: 190, fuelEfficiency: 18, price: 52000, cargoSpace: 90, safetyFeatures: 60 },
-        car8: { name: "Nissan Frontier", speed: 180, fuelEfficiency: 20, price: 29000, cargoSpace: 90, safetyFeatures: 60 },
-        car9: { name: "Toyota Tacoma", speed: 185, fuelEfficiency: 22, price: 35000, cargoSpace: 90, safetyFeatures: 60 }
+        car1: { 
+            name: "Honda Civic Si", 
+            speed: 225, // kph
+            fuelEfficiency: 6.0, // L/100km
+            price: 27500, // CAD
+            cargoSpace: 425, // Liters
+            safetyFeatures: 8 // Count
+        },
+        car2: { 
+            name: "Hyundai Sonata", 
+            speed: 217, 
+            fuelEfficiency: 6.5, 
+            price: 26000, 
+            cargoSpace: 450, 
+            safetyFeatures: 9 
+        },
+        car3: { 
+            name: "Toyota Camry TRD", 
+            speed: 233, 
+            fuelEfficiency: 8.0, 
+            price: 32000, 
+            cargoSpace: 428, 
+            safetyFeatures: 9 
+        },
+        car4: { 
+            name: "Mitsubishi Outlander", 
+            speed: 201, 
+            fuelEfficiency: 8.5, 
+            price: 27500, 
+            cargoSpace: 880, 
+            safetyFeatures: 7 
+        },
+        car5: { 
+            name: "Nissan Rogue", 
+            speed: 193, 
+            fuelEfficiency: 7.3, 
+            price: 28500, 
+            cargoSpace: 1050, 
+            safetyFeatures: 8 
+        },
+        car6: { 
+            name: "Subaru Outback", 
+            speed: 209, 
+            fuelEfficiency: 9.0, 
+            price: 30000, 
+            cargoSpace: 1000, 
+            safetyFeatures: 9 
+        },
+        car7: { 
+            name: "Ford Raptor", 
+            speed: 185, 
+            fuelEfficiency: 13.4, 
+            price: 52000, 
+            cargoSpace: 1400, 
+            safetyFeatures: 7 
+        },
+        car8: { 
+            name: "Nissan Frontier", 
+            speed: 193, 
+            fuelEfficiency: 11.2, 
+            price: 29000, 
+            cargoSpace: 1250, 
+            safetyFeatures: 6 
+        },
+        car9: { 
+            name: "Toyota Tacoma", 
+            speed: 201, 
+            fuelEfficiency: 12.8, 
+            price: 35000, 
+            cargoSpace: 1275, 
+            safetyFeatures: 8 
+        }
     };
 
     // Function to calculate the car rating based on specs
     function calculateRating(car) {
-        const speedRating = (car.speed / 250) * 100; // Normalize speed to 100
-        const fuelEfficiencyRating = (car.fuelEfficiency / 40) * 100; // Normalize to a scale of 40 mpg
-        const safetyFeaturesRating = car.safetyFeatures; // Already a percentage
-        const cargoSpaceRating = (car.cargoSpace / 100) * 100;
-        const priceRating = (50000 / car.price) * 100;
+        const speedRating = (car.speed / 250) * 100;
+        const fuelEfficiencyRating = (car.fuelEfficiency / 15) * 100;
+        const safetyFeaturesRating = car.safetyFeatures / 10;
+        const cargoSpaceRating = (car.cargoSpace / 1500) * 100;
+        const priceRating = (60000 / car.price) * 100;
 
         // Weighted average of specs (You can adjust the weightings as necessary)
-        const rating = (speedRating * 0.1) + (fuelEfficiencyRating * 0.4) + (safetyFeaturesRating * 0.3) + (cargoSpaceRating * 0.1) + (priceRating * 0.1);
-        return rating; // Rating will be between 0 and 100
+        const rating = (speedRating * 0.05) + (fuelEfficiencyRating * 0.4) + (safetyFeaturesRating * 0.25) + (cargoSpaceRating * 0.10) + (priceRating * 0.20);
+        
+        // Rating will be between 0 and 100
+        return rating; 
     }
 
+    // Code for clicking Compare button
     // Remove any previously attached handlers before adding a new one
     $('.calculate').off('click').on('click', function () {
         const firstCarId = $('#firstCar').val();
@@ -217,7 +283,7 @@ function compareVehicle() {
         const firstCarCard = $(`#${firstCarId}`).clone();
         const secondCarCard = $(`#${secondCarId}`).clone();
 
-        // To not follow the flex behavior from showcase section
+        // Remove class to not follow the flex behavior from showcase section
         firstCarCard.removeClass("col-md-4");
         secondCarCard.removeClass("col-md-4");
 
@@ -240,10 +306,10 @@ function compareVehicle() {
         function addSpecBars(card, car) {
             // Calculate percentage values
             const speedPercentage = ((car.speed / 250) * 100).toFixed(2);
-            const fuelPercentage = ((car.fuelEfficiency / 40) * 100).toFixed(2);
-            const safetyPercentage = ((car.safetyFeatures / 100) * 100).toFixed(2);
-            const cargoPercentage = ((car.cargoSpace / 100) * 100).toFixed(2);
-            const pricePercentage = ((car.price / 50000) * 100).toFixed(2);
+            const fuelPercentage = ((car.fuelEfficiency / 15) * 100).toFixed(2);
+            const safetyPercentage = ((car.safetyFeatures / 10) * 100).toFixed(2);
+            const cargoPercentage = ((car.cargoSpace / 1500) * 100).toFixed(2);
+            const pricePercentage = ((car.price / 60000) * 100).toFixed(2);
 
             // Calculate the overall rating using the provided function
             const overallRating = calculateRating(car).toFixed(2);  // This will be a number between 0 and 100
@@ -252,12 +318,12 @@ function compareVehicle() {
             // Add speed progress bar
             const speedBar = `
                 <div class="d-flex align-items-center mt-5">
-                    <div class="spec-label" style="width: 150px;">Speed</div>
+                    <div class="spec-label" style="width: 150px;">Top Speed</div>
                     <div class="progress" style="flex-grow: 1;">
                         <div class="progress-bar" style="width: 0%;" role="progressbar"></div>
                     </div>
                 </div>
-                <div class="spec-value">${speedPercentage}%</div>`;  // Add percentage below and align it to the right
+                <div class="spec-value">${car.speed} km/hr</div>`;  // Add percentage below and align it to the right
 
             // Add fuel efficiency progress bar
             const fuelBar = `
@@ -267,7 +333,7 @@ function compareVehicle() {
                         <div class="progress-bar" style="width: 0%;" role="progressbar"></div>
                     </div>
                 </div>
-                <div class="spec-value">${fuelPercentage}%</div>`;  // Add percentage below and align it to the right
+                <div class="spec-value">${car.fuelEfficiency} L/100km</div>`;  // Add percentage below and align it to the right
 
             // Add safety features progress bar
             const safetyBar = `
@@ -277,7 +343,7 @@ function compareVehicle() {
                         <div class="progress-bar" style="width: 0%;" role="progressbar"></div>
                     </div>
                 </div>
-                <div class="spec-value">${safetyPercentage}%</div>`;  // Add percentage below and align it to the right
+                <div class="spec-value">${car.safetyFeatures} ratings</div>`;  // Add percentage below and align it to the right
 
             // Add cargo space progress bar
             const cargoBar = `
@@ -287,7 +353,7 @@ function compareVehicle() {
                         <div class="progress-bar" style="width: 0%;" role="progressbar"></div>
                     </div>
                 </div>
-                <div class="spec-value">${cargoPercentage}%</div>`;  // Add percentage below and align it to the right
+                <div class="spec-value">${car.cargoSpace} L</div>`;  // Add percentage below and align it to the right
 
             // Add price progress bar
             const priceBar = `
@@ -297,7 +363,7 @@ function compareVehicle() {
                         <div class="progress-bar" style="width: 0%;" role="progressbar"></div>
                     </div>
                 </div>
-                <div class="spec-value">${pricePercentage}%</div>`;  // Add percentage below and align it to the right
+                <div class="spec-value">CA$${car.price.toLocaleString()}</div>`;  // Add percentage below and align it to the right
 
 
             // Add overall rating progress bar
@@ -357,10 +423,10 @@ function compareVehicle() {
 
         // Display the result in the result container
         const resultMessage = `
-        <h3>Comparison Result:</h3>
-        <p class="mt-3"><strong>${betterCar}</strong> has the better overall rating of <strong>${betterRating}%</strong>.</p>
-        <p><i>overallRating = (0.1 * speed) + (0.4 * fuelEfficiency) + (0.3 * safetyFeatures) + (0.1 * cargoSpace) + (0.1 * price)</i></p>
-        `;
+            <h3>Comparison Result:</h3>
+            <p class="mt-3"><strong>${betterCar}</strong> has the better overall rating⁺ of <strong>${betterRating}%</strong>.</p>
+            <p><i>⁺overallRating = (0.05 * topSpeed) + (0.40 * fuelEfficiency) + (0.25 * safetyFeatures) + (0.10 * cargoSpace) + (0.20 * price)</i></p>
+            `;
 
         // Insert the result into the #resultMessage div
         $('#resultMessage').html(resultMessage);
@@ -368,17 +434,43 @@ function compareVehicle() {
         $('#resultContainer').fadeIn();
 
 
-
-
         // Append the modified cards to the comparison container
         $('#firstCarResult').append(firstCarCard);
         $('#secondCarResult').append(secondCarCard);
 
+        // Add card hover effect after adding the 2 cars
+        $('#comparisonContainer .card').each(function () {
+            // Remove any existing handlers to avoid duplication
+            $(this).off();
+
+            // Hide visibility of card text
+            $(this).find('.card-text').hide();
+
+            // Add hover effects for the showcase cards
+            $(this).on('mouseenter', function () {
+                $(this).css({
+                    'transform': 'translateY(-5px)',
+                    'box-shadow': '0px 8px 16px rgba(0, 0, 0, 0.15)'
+                });
+            });
+
+            $(this).on('mouseleave', function () {
+                $(this).css({
+                    'transform': 'none',
+                    'box-shadow': 'none'
+                });
+            });
+        });
+
+
+
+        // Prepare for storing in history -----------------
+        // Remove text for empty history
+        $("#histEmpty").css('display', 'none');
+
         // Create a variable to store both car selections with names
         const firstCarName = carNames[firstCarId];
         const secondCarName = carNames[secondCarId];
-
-
 
         // Create a comparison value string for checking history
         const comparisonText = `${firstCarName} x ${secondCarName}`;
@@ -398,14 +490,16 @@ function compareVehicle() {
         // If the history item doesn't exist, append it
         if (!isHistoryExist) {
             const historyItem = `<li class="list-group-item d-flex justify-content-between align-items-center">${comparisonText}
-                                        <button class="btn btn-sm btn-info restore-history" data-comparison="${comparisonValue}">Restore</button></li>`;
+                                        <button class="btn btn-sm btn-primary restore-history" data-comparison="${comparisonValue}">Restore</button></li>`;
 
             // Append the new comparison history item to the list
             $('#historyList').append(historyItem); // Add new history without replacing previous entries
         }
+
+
+        
     });
 
-    
     // Function to animate progress bars
     function animateProgressBars() {
         $(".progress-bar").each(function() {
@@ -435,35 +529,6 @@ function compareVehicle() {
             }
         });
     });
-
-
-
-    
-    // // Scope event handlers to showcase cards only
-    // $('#comparisonContainer .card').each(function () {
-    //     // Remove any existing handlers to avoid duplication
-    //     $(this).off();
-
-    //     // Toggle visibility of card text on click
-    //     $(this).on('click', function () {
-    //         $(this).find('.card-text').stop().slideToggle(200);
-    //     });
-
-    //     // Add hover effects for the showcase cards
-    //     $(this).on('mouseenter', function () {
-    //         $(this).css({
-    //             'transform': 'translateY(-5px)',
-    //             'box-shadow': '0px 8px 16px rgba(0, 0, 0, 0.15)'
-    //         });
-    //     });
-
-    //     $(this).on('mouseleave', function () {
-    //         $(this).css({
-    //             'transform': 'none',
-    //             'box-shadow': 'none'
-    //         });
-    //     });
-    // });
 
 }
 

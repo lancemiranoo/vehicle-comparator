@@ -181,7 +181,17 @@ li {
     box-sizing: border-box; /* Ensure padding and margin are included in the card width */
     margin-bottom: 15px; /* Adds vertical spacing between rows */
 }
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(50% - 15px); /* Two cards per row on smaller screens */
+    }
+}
 
+@media (max-width: 480px) {
+    .card {
+        flex: 1 1 100%; /* One card per row on very small screens */
+    }
+}
 
 #showcase-title {
     color: rgb(151, 0, 0); /* Highlight active links with color */
@@ -262,14 +272,15 @@ li {
 #compare {
     /* White background */
     background-color: #ffffff;
-    min-height: 75vh;
+    min-height: 50vh;
     padding: 20px 0;
     padding-top: 100px;
     text-align: center;
 }
 
 #comparison-title {
-    color: rgb(151, 0, 0); /* Highlight active links with color */
+    /* Highlight active links with color */
+    color: rgb(151, 0, 0);
     margin-bottom: 50px;
 }
 
@@ -355,6 +366,8 @@ li {
 .overallRating {
     background-color: rgb(150, 0, 0) !important;
 }
+
+
 /* History Section **********************************************/
 
 #history {
@@ -366,4 +379,15 @@ li {
     padding-left: 25px;
     padding-right: 25px;
     text-align: center;
+}
+
+#histEmpty {
+    color: #888888;
+    text-align: left;
+}
+
+/* Make the top left and right rounded after hiding 1st child */
+.list-group-item:nth-child(2) {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
 }
