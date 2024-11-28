@@ -6,36 +6,6 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.slideanim {
-    visibility:hidden;
-}
-.slide {
-    animation-name: slide;
-    -webkit-animation-name: slide;
-    animation-duration: 1s;
-    -webkit-animation-duration: 1s;
-    visibility: visible;
-}
-@keyframes slide {
-  0% {
-    opacity: 0;
-    transform: translateY(70%);
-  } 
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-@-webkit-keyframes slide {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(70%);
-  } 
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-  }
-}
 
 /* Interactive Navigation Menu Bar **********************************************/
 nav {
@@ -156,7 +126,6 @@ li {
 }
 
 /* Showcase Section **********************************************/
-
 #showcase {
     /* Light gray background */
     background-color: #f0f0f0f0;  
@@ -164,66 +133,26 @@ li {
     padding-top: 100px;
     text-align: center;
 }
-
-#car-cards {
-    display: flex;
-    flex-wrap: wrap;  /* Allow the cards to wrap to the next line */
-    gap: 20px;  /* Adds space between the cards */
-    justify-content: flex-start; /* Align cards to the left */
-}
-
-.card-img-top {
-    width: 100%;
-    height: auto;
-    border-bottom: 2px solid #ddd;
-}
-
-.card-body {
-    padding: 10px;
-    text-align: center;
-}
-
-.card-text {
-    display: none;
-    font-size: 1em;
-    color: #666;
-}
-
-.card-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
-}
-
-.card {
-    flex: 0 0 calc(33.333% - 15px); /* Prevent cards from stretching */
-    margin-bottom: 15px; /* Adds vertical spacing between rows */
-    border-radius: 10px;
-    box-sizing: border-box; /* Ensure padding and margin are included in the card width */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-    padding: 30px;
-}
-@media (max-width: 768px) {
-    .card {
-        /* Two cards per row on smaller screens */
-        flex: 0 0 calc(50% - 15px);
-    }
-}
-
-@media (max-width: 480px) {
-    .card {
-        /* One card per row on very small screens */
-        flex: 0 0 100%;
-    }
-}
-
 #showcase-title {
     color: rgb(151, 0, 0); /* Highlight active links with color */
     margin-bottom: 50px;
 }
 
+/* For search filter */
+#myInput {
+    background-image: url('./images/icon.jpg'); /* Add a search icon to input */
+    background-size: 20px 20px; /* Resize the icon */
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    border-radius: 10px;
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+/* Button filters */
 .filter {
     margin-bottom: 50px;
 }
@@ -251,22 +180,105 @@ li {
     font-weight: bold;
 }
 
-#myInput {
-    background-image: url('./images/icon.jpg'); /* Add a search icon to input */
-    background-size: 20px 20px; /* Resize the icon */
-    background-position: 10px 12px; /* Position the search icon */
-    background-repeat: no-repeat; /* Do not repeat the icon image */
-    width: 100%; /* Full-width */
-    font-size: 16px; /* Increase font-size */
-    padding: 12px 20px 12px 40px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
-    border-radius: 10px;
-    margin-bottom: 12px; /* Add some space below the input */
+/* Vehicle Cards */
+#car-cards {
+    display: flex;
+    justify-content: flex-start; /* Align cards to the left */
+    flex-wrap: wrap;  /* Allow the cards to wrap to the next line */
+    gap: 20px;  /* Adds space between the cards */
 }
 
+.card-img-top {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #ddd;
+}
+
+.card-body {
+    padding: 10px;
+    text-align: center;
+}
+
+.card-text {
+    display: none;
+    font-size: 1em;
+    color: #666;
+}
+
+.card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.card {
+    /* Shows 3 cards per row by default */
+    flex: 0 0 calc(33.333% - 15px); /* 0 0 prevent cards from stretching */
+    margin-bottom: 15px; /* Adds vertical spacing between rows */
+    border-radius: 10px;
+    box-sizing: border-box; /* Ensure padding and margin are included in the card width */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 30px;
+}
+
+#showcase .card {
+    cursor: pointer;
+}
+
+/* Media Query for cards */
+@media (max-width: 768px) {
+    .card {
+        /* Two cards per row on smaller screens */
+        flex: 0 0 calc(50% - 15px);
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        /* One card per row on very small screens */
+        flex: 0 0 100%;
+    }
+}
+
+/* Animation for cards */
+.slideanim {
+    visibility: hidden;
+}
+
+.slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+}
+
+/* Slide animation configuration */
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateY(70%);
+  } 
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes slide {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(70%);
+  } 
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }
+}
 
 /* Comparison Section **********************************************/
-
 #compare {
     /* White background */
     background-color: #ffffff;
@@ -282,13 +294,7 @@ li {
     margin-bottom: 50px;
 }
 
-#compare .col-md-2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
+/* For Compare Button */
 #compare .col-md-2 {
     display: flex;
     justify-content: center;
@@ -340,10 +346,12 @@ li {
     background-color: #555;
 }
 
+/* Comparison Result Section */
 #comparisonContainer {
     padding-top: 60px;
 }
 
+/* Progress Bar Specification */
 .progress-bar {
     background-color: rgb(255, 0, 0) !important;
 }
@@ -365,9 +373,7 @@ li {
     background-color: rgb(150, 0, 0) !important;
 }
 
-
 /* History Section **********************************************/
-
 #history {
     /* Light gray background */
     background-color: #f0f0f0f0;
@@ -389,7 +395,6 @@ li {
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
 }
-
 
 /* Footer Section **********************************************/
 #footer {
