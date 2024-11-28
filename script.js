@@ -88,15 +88,47 @@ function navigationMenu() {
 //   2. Hover effect (mouse enter and leave) on the cards
 // ---------------------------------------------------------
 function vehicleShowcase() {
+    // Store the original heights of all cards
+    const cardOriginalHeights = {};
+
+    // Initialize the original heights
+    $('.card').each(function () {
+        cardOriginalHeights[$(this).attr('id')] = $(this).outerHeight();
+    });
+
+
     // Scope event handlers to showcase cards only
     $('.card').each(function () {
         // Remove any existing handlers to avoid duplication
         $(this).off();
 
+        
         // Toggle visibility of card text on click
         $(this).on('click', function () {
-            $(this).find('.card-text').stop().slideToggle(200);
+            const clickedCard = $(this); // Reference to the clicked card
+
+            // Toggle the description visibility
+            clickedCard.find('.card-text').stop().slideToggle(200, "linear", function () {
+                if ($(this).is(':visible')) {
+                    // Expand the clicked card
+                    clickedCard.css('height', 'auto');
+                } else {
+                    // Reset the clicked card to its original height
+                    // clickedCard.css('height', cardOriginalHeights[clickedCard.attr('id')] + 'px');
+                }
+            });
+
+            // Reset all other cards to their original height
+            $('.card').not(clickedCard).each(function () {
+                $(this).css('height', cardOriginalHeights[$(this).attr('id')] + 'px');
+            });
         });
+        // // Toggle visibility of card text on click
+        // $(this).on('click', function () {
+        //     // Toggle description
+        //     $(this).find('.card-text').stop().slideToggle(200);
+            
+        // });
 
         // Add hover effects for the showcase cards
         $(this).on('mouseenter', function () {
@@ -151,6 +183,11 @@ function vehicleShowcase() {
             $("#car-cards > .card").hide();
             $("." + filter).show();
         }
+
+        // Remove 'active' class from all filter buttons
+        $('.filterBtn').removeClass('active');
+        // Add 'active' class to the clicked button
+        $(this).addClass('active');
     });
 }
 
@@ -473,7 +510,7 @@ function compareVehicle() {
         const secondCarName = carNames[secondCarId];
 
         // Create a comparison value string for checking history
-        const comparisonText = `${firstCarName} x ${secondCarName}`;
+        const comparisonText = `${firstCarName} • ${secondCarName}`;
         const comparisonValue = `${firstCarId}-${secondCarId}`;
 
         // Check if the history already contains this comparison

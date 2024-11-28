@@ -156,13 +156,9 @@ li {
 }
 
 /* Showcase Section **********************************************/
-/* .d-none {
-    display: none !important;
-} */
 
 #showcase {
     /* Light gray background */
-    /* f7f7f7 */
     background-color: #f0f0f0f0;  
     padding: 20px 0;
     padding-top: 100px;
@@ -176,20 +172,50 @@ li {
     justify-content: flex-start; /* Align cards to the left */
 }
 
+.card-img-top {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #ddd;
+}
+
+.card-body {
+    padding: 10px;
+    text-align: center;
+}
+
+.card-text {
+    display: none;
+    font-size: 1em;
+    color: #666;
+}
+
+.card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
 .card {
     flex: 0 0 calc(33.333% - 15px); /* Prevent cards from stretching */
-    box-sizing: border-box; /* Ensure padding and margin are included in the card width */
     margin-bottom: 15px; /* Adds vertical spacing between rows */
+    border-radius: 10px;
+    box-sizing: border-box; /* Ensure padding and margin are included in the card width */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 30px;
 }
 @media (max-width: 768px) {
     .card {
-        flex: 1 1 calc(50% - 15px); /* Two cards per row on smaller screens */
+        /* Two cards per row on smaller screens */
+        flex: 0 0 calc(50% - 15px);
     }
 }
 
 @media (max-width: 480px) {
     .card {
-        flex: 1 1 100%; /* One card per row on very small screens */
+        /* One card per row on very small screens */
+        flex: 0 0 100%;
     }
 }
 
@@ -210,10 +236,19 @@ li {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
 }
 
 .filterBtn:hover {
-    background-color: #666 /* Darker blue on hover */
+    color: white;
+    background-color: #666; /* Light gray on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filterBtn.active {
+    color: white;
+    background-color: #3d3d3d;
+    font-weight: bold;
 }
 
 #myInput {
@@ -227,43 +262,6 @@ li {
     border: 1px solid #ddd; /* Add a grey border */
     border-radius: 10px;
     margin-bottom: 12px; /* Add some space below the input */
-}
-
-.card {
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-    padding: 30px;
-}
-
-.card-img-top {
-    width: 100%;
-    height: auto;
-    border-bottom: 2px solid #ddd;
-}
-
-.card-body {
-    /* Hidden initially */
-    /* display: none; */
-    padding: 10px;
-    text-align: center;
-}
-
-.card-text {
-    display: none;
-}
-
-.card-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
-}
-
-.card-text {
-    font-size: 1em;
-    color: #666;
 }
 
 
@@ -390,4 +388,11 @@ li {
 .list-group-item:nth-child(2) {
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
+}
+
+
+/* Footer Section **********************************************/
+#footer {
+    background-color: #000000;
+    color: white;
 }

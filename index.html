@@ -4,10 +4,11 @@
 |       Authors: Joash Daligcon, 000358654                     |
 |                Aron Limos, 000371798                         |
 |                Lance Mirano, 000368826                       |
-|    Created on: 2024-11-15                                    |
-|       Release: 1.0                                           |
-|   Description: Initial release includes the interactive      |
-|                navigation menu bar and the vehicle showcase. |
+|    Created on: 2024-11-27                                    |
+|       Release: 2.0                                           |
+|   Description: A tool to explore, compare and contrast key   |
+|                features of cars such as performance, safety  |
+|                ratings, fuel efficiency, and pricing.        |
 ************************************************************* -->
 
 <!DOCTYPE html>
@@ -83,7 +84,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <input type="text" id="myInput" placeholder="Search for cars by title...">
+                    <input type="text" id="myInput" placeholder="Search for cars...">
                 </div>
             </div>
         </div>
@@ -92,7 +93,7 @@
         <div class="container">
             <div class="row filter">
                 <div class="col-md-12">
-                    <button class="filterBtn" data-filter="all">All Cars</button>
+                    <button class="filterBtn active" data-filter="all">All Cars</button>
                     <button class="filterBtn" data-filter="sedan">Sedan</button>
                     <button class="filterBtn" data-filter="suv">SUV</button>
                     <button class="filterBtn" data-filter="truck">Truck</button>
@@ -266,9 +267,9 @@
             </div>
         </div>
         
-        <!-- Rounded Rectangle for History -->
+        <!-- Container for History List Items -->
         <div class="container mt-4">
-            <div class="rounded-rectangle p-4">
+            <div class="p-1">
                 <ul id="historyList" class="list-group">
                     <li id="histEmpty" class="list-group-item">Comparison history is empty.</li>
                     <!-- History items will be added here -->
@@ -279,14 +280,14 @@
 
 
     <!-- Footer Section -->
-    <footer id="footer" class="text-center mb-5">
+    <footer id="footer" class="text-center pb-5">
         <!-- Footer Image -->
         <div class="mb-5" style="height: 50vh; overflow: hidden;">
             <img src="./images/foot.jpg" alt="Footer Image" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
 
         <!-- Back to Top Button with Up Symbol -->
-        <a href="#home" id="scrollToTop" class="btn btn-light">
+        <a href="#home" id="scrollToTop" class="btn btn-dark">
             <span style="font-size: 30px;">⏏</span>
         </a>
 
