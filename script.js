@@ -142,16 +142,36 @@ function vehicleShowcase() {
 
     // Filtering cars based on car category
     $(".filterBtn").off().on('click', function () {
+
         // Get the target data to filter
         const filter = $(this).attr("data-filter");
 
         if (filter === "all") {
+            // For slide up fade in effect
+            $("#car-cards > .card").addClass("slide");
+
+            // For smooth slide up fade in
+            $("#car-cards > .card").hide();
             // Show all products
             $("#car-cards > .card").show();
+
+            // Move the first card to the end to smoothen the effect
+            const firstCard = $("#car-cards > .card:first").detach();
+            $("#car-cards").append(firstCard);
+
         } else {
             // Hide all products and show only the filtered ones
             $("#car-cards > .card").hide();
+            
+            // For slide up fade in effect
+            $("." + filter).addClass("slide");
+
+            // For smooth slide up fade in
             $("." + filter).show();
+
+            // Move the first card to the end to smoothen the effect
+            const firstFilteredCard = $("." + filter + ":first").detach();
+            $("#car-cards").append(firstFilteredCard);
         }
 
         // Remove 'active' class from all filter buttons
