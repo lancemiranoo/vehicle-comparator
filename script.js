@@ -205,7 +205,8 @@ function compareVehicle() {
             fuelEfficiency: 6.0, // L/100km
             price: 27500, // CAD
             cargoSpace: 425, // Liters
-            safetyFeatures: 8 // Count
+            safetyFeatures: 8, // Count
+            torque: 200 // LBS
         },
         car2: { 
             name: "Hyundai Sonata", 
@@ -213,7 +214,8 @@ function compareVehicle() {
             fuelEfficiency: 6.5, 
             price: 26000, 
             cargoSpace: 450, 
-            safetyFeatures: 9 
+            safetyFeatures: 9,
+            torque: 200 // LBS
         },
         car3: { 
             name: "Toyota Camry TRD", 
@@ -221,7 +223,8 @@ function compareVehicle() {
             fuelEfficiency: 8.0, 
             price: 32000, 
             cargoSpace: 428, 
-            safetyFeatures: 9 
+            safetyFeatures: 9,
+            torque: 200 // LBS
         },
         car4: { 
             name: "Mitsubishi Outlander", 
@@ -229,7 +232,8 @@ function compareVehicle() {
             fuelEfficiency: 8.5, 
             price: 27500, 
             cargoSpace: 880, 
-            safetyFeatures: 7 
+            safetyFeatures: 7,
+            torque: 200 // LBS
         },
         car5: { 
             name: "Nissan Rogue", 
@@ -237,7 +241,8 @@ function compareVehicle() {
             fuelEfficiency: 7.3, 
             price: 28500, 
             cargoSpace: 1050, 
-            safetyFeatures: 8 
+            safetyFeatures: 8,
+            torque: 200 // LBS
         },
         car6: { 
             name: "Subaru Outback", 
@@ -245,7 +250,8 @@ function compareVehicle() {
             fuelEfficiency: 9.0, 
             price: 30000, 
             cargoSpace: 1000, 
-            safetyFeatures: 9 
+            safetyFeatures: 9,
+            torque: 200 // LBS
         },
         car7: { 
             name: "Ford Raptor", 
@@ -253,7 +259,8 @@ function compareVehicle() {
             fuelEfficiency: 13.4, 
             price: 52000, 
             cargoSpace: 1400, 
-            safetyFeatures: 7 
+            safetyFeatures: 7, 
+            torque: 200 // LBS
         },
         car8: { 
             name: "Nissan Frontier", 
@@ -261,7 +268,8 @@ function compareVehicle() {
             fuelEfficiency: 11.2, 
             price: 29000, 
             cargoSpace: 1250, 
-            safetyFeatures: 6 
+            safetyFeatures: 6,
+            torque: 200 // LBS
         },
         car9: { 
             name: "Toyota Tacoma", 
@@ -269,7 +277,8 @@ function compareVehicle() {
             fuelEfficiency: 12.8, 
             price: 35000, 
             cargoSpace: 1275, 
-            safetyFeatures: 8 
+            safetyFeatures: 8,
+            torque: 200 // LBS
         }
     };
 
@@ -281,6 +290,7 @@ function compareVehicle() {
         const safetyPercentage = ((car.safetyFeatures / 10) * 100).toFixed(2);
         const cargoPercentage = ((car.cargoSpace / 1500) * 100).toFixed(2);
         const pricePercentage = ((car.price / 60000) * 100).toFixed(2);
+        const torquePercentage = ((car.torque/500) * 100).toFixed(2);
 
         // Calculate the overall rating using the provided function
         const overallRating = calculateRating(car).toFixed(2);  // This will be a number between 0 and 100
@@ -326,6 +336,16 @@ function compareVehicle() {
             </div>
             <div class="spec-value">${car.cargoSpace} L</div>`;  // Add percentage below and align it to the right
 
+        // Add torque progress bar
+        const torqueBar = `
+        <div class="d-flex align-items-center mt-3">
+            <div class="spec-label" style="width: 150px;">Torque</div>
+            <div class="progress" style="flex-grow: 1;">
+                <div class="progress-bar" style="width: 0%;" role="progressbar"></div>
+            </div>
+        </div>
+        <div class="spec-value">${car.torque.toLocaleString()} LBS</div>`;  // Add percentage below and align it to the right
+
         // Add price progress bar
         const priceBar = `
             <div class="d-flex align-items-center mt-3">
@@ -335,7 +355,6 @@ function compareVehicle() {
                 </div>
             </div>
             <div class="spec-value">CA$${car.price.toLocaleString()}</div>`;  // Add percentage below and align it to the right
-
 
         // Add overall rating progress bar
         const overallRatingBar = `
@@ -347,9 +366,8 @@ function compareVehicle() {
         </div>
         <div class="spec-value ratingDiv">${overallRating}%</div>`;
 
-
         // Append the spec bars and the labels to the card
-        $(card).find('.card-body').append(speedBar, fuelBar, safetyBar, cargoBar, priceBar, overallRatingBar);
+        $(card).find('.card-body').append(speedBar, fuelBar, safetyBar, cargoBar, torqueBar, priceBar, overallRatingBar);
 
         // Animate the progress bars from 0% to the calculated percentage with faster animation
         $(card).find('.progress-bar').each(function(index) {
@@ -358,8 +376,9 @@ function compareVehicle() {
             else if (index === 1) percentage = fuelPercentage;
             else if (index === 2) percentage = safetyPercentage;
             else if (index === 3) percentage = cargoPercentage;
-            else if (index === 4) percentage = pricePercentage;
-            else if (index === 5) percentage = overallRating; 
+            else if (index === 4) percentage = torquePercentage;
+            else if (index === 5) percentage = pricePercentage;
+            else if (index === 6) percentage = overallRating;
     
             // Animate to the desired percentage over 0.5 seconds
             $(this).animate({ width: percentage + '%' }, 500);
@@ -372,10 +391,11 @@ function compareVehicle() {
         const fuelEfficiencyRating = (car.fuelEfficiency / 15) * 100;
         const safetyFeaturesRating = car.safetyFeatures / 10;
         const cargoSpaceRating = (car.cargoSpace / 1500) * 100;
+        const torqueRating = (car.torque / 500) * 100
         const priceRating = (60000 / car.price) * 100;
 
         // Weighted average of specs (You can adjust the weightings as necessary)
-        const rating = (speedRating * 0.05) + (fuelEfficiencyRating * 0.4) + (safetyFeaturesRating * 0.25) + (cargoSpaceRating * 0.10) + (priceRating * 0.20);
+        const rating = (speedRating * 0.05) + (fuelEfficiencyRating * 0.4) + (safetyFeaturesRating * 0.25) + (cargoSpaceRating * 0.10) + (torqueRating * 0.10) + (priceRating * 0.10);
         
         // Rating will be between 0 and 100
         return rating; 
@@ -403,27 +423,36 @@ function compareVehicle() {
         // Prepare for the 2 vehicles to compare -----------------
         const firstCarId = $('#firstCar').val();
         const secondCarId = $('#secondCar').val();
+        const thirdCarId = $('#thirdCar').val();
 
         if (firstCarId === secondCarId) {
-            alert("Please select two different cars for comparison.");
+            alert("Please select another car for comparison.");
             return;
+        }
+        if (firstCarId === thirdCarId) {
+            alert("PLease select another car for comparison.")
         }
 
         // Empty the comparison container before adding new comparison cards
         $('#firstCarResult').empty();
         $('#secondCarResult').empty();
+        $('#thirdCarResult').empty();
 
         // Clone the selected car cards based on the car IDs
         const firstCarCard = $(`#${firstCarId}`).clone();
         const secondCarCard = $(`#${secondCarId}`).clone();
+        const thirdCarCard = $(`#${thirdCarId}`).clone();
 
         // Remove class to not follow the flex behavior from showcase section
         firstCarCard.removeClass("col-md-4");
         secondCarCard.removeClass("col-md-4");
+        thirdCarCard.removeClass("col-md-4");
+        
 
         // Ensure cards are visible
         firstCarCard.css('display', 'block');
         secondCarCard.css('display', 'block');
+        thirdCarCard.css('display', 'block');
 
         // Show the comparison result section
         $('#comparisonContainer').show();
@@ -438,14 +467,17 @@ function compareVehicle() {
         // Use the carSpecs object to get the car specs
         const firstCar = carSpecs[firstCarId];
         const secondCar = carSpecs[secondCarId];
+        const thirdCar = carSpecs[thirdCarId];
 
         // Add the spec bars and total rating to both cars
         addSpecBars(firstCarCard, firstCar);
         addSpecBars(secondCarCard, secondCar);
+        addSpecBars(thirdCarCard, thirdCar);
 
         // Calculate ratings for both cars
         const firstCarRating = calculateRating(firstCar);
         const secondCarRating = calculateRating(secondCar);
+        const thirdCarRating = calculateRating(thirdCar);
 
         // Find the better car based on the overall rating
         let betterCar;
@@ -453,14 +485,29 @@ function compareVehicle() {
         if (firstCarRating > secondCarRating) {
             betterCar = carSpecs[firstCarId].name;
             betterRating = firstCarRating.toFixed(2);
-        } else if (secondCarRating > firstCarRating) {
+        } 
+        else if (firstCarRating > thirdCarRating) {
+            betterCar = carSpecs[firstCarId].name;
+            betterRating = firstCarRating.toFixed(2);
+        } 
+        else if (secondCarRating > thirdCarRating) {
             betterCar = carSpecs[secondCarId].name;
             betterRating = secondCarRating.toFixed(2);
+        } 
+        else if (thirdCarRating > firstCarRating) {
+            betterCar = carSpecs[thirdCarId].name;
+            betterRating = thirdCarRating.toFixed(2);
+        } 
+        else if (thirdCarRating > secondCarRating) {
+            betterCar = carSpecs[thirdCarId].name;
+            betterRating = thirdCarRating.toFixed(2);
         } else {
             betterCar = "Both cars";
             // Since both ratings are the same
             betterRating = firstCarRating.toFixed(2);
         }
+
+
 
         // Display the result in the result container
         const resultMessage = `
@@ -477,6 +524,7 @@ function compareVehicle() {
         // Append the modified cards to the comparison container
         $('#firstCarResult').append(firstCarCard);
         $('#secondCarResult').append(secondCarCard);
+        $('#thirdCarResult').append(thirdCarCard);
 
         // Add card hover effect after adding the 2 cars
         $('#comparisonContainer .card').each(function () {
@@ -511,10 +559,11 @@ function compareVehicle() {
         // Create a variable to store both car selections with names
         const firstCarName = carNames[firstCarId];
         const secondCarName = carNames[secondCarId];
+        const thirdCarName = carNames[thirdCarId];
 
         // Create a comparison value string for checking history
-        const comparisonText = `${firstCarName} • ${secondCarName}`;
-        const comparisonValue = `${firstCarId}-${secondCarId}`;
+        const comparisonText = `${firstCarName} • ${secondCarName} • ${thirdCarName}`;
+        const comparisonValue = `${firstCarId}-${secondCarId}-${thirdCarId}`;
 
         // Check if the history already contains this comparison
         let isHistoryExist = false;
@@ -552,11 +601,12 @@ function vehicleHistory() {
         const comparisonValue = $(this).data('comparison'); // Get the stored comparison values
 
         // Split the comparison value back into the first and second car IDs
-        const [firstCarId, secondCarId] = comparisonValue.split('-');
+        const [firstCarId, secondCarId, thirdCarId] = comparisonValue.split('-');
 
         // Update the combo boxes with the stored values
         $('#firstCar').val(firstCarId);
         $('#secondCar').val(secondCarId);
+        $('#thirdCar').val(thirdCarId);
 
         // Trigger the "Compare" button click after restoring the values
         $('.calculate').click();
